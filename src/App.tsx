@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route, Routes, useNavigate} from "react-router-dom";
+import ReactDOM from "react-dom";
+import GravityCollector from '@smartesting/gravity-data-collector/dist'
+import Interactions from "./pages/Interactions";
+import CopyPaste from "./pages/CopyPaste";
+import Form from "./pages/Form";
 
 function App() {
+    GravityCollector.init({
+        authKey: process.env.REACT_APP_GRAVITY_KEY
+    })
+    const navigate = useNavigate()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Routes>
+        <Route
+            path='/'
+            element={<Interactions next={() => navigate('/copy-paste')}/>}
+        />
+          <Route
+              path='/copy-paste'
+              element={<CopyPaste next={() => navigate('/form')} />}
+          />
+          <Route
+              path='/form'
+              element={<Form next={() => {}} />}
+          />
+      </Routes>
   );
 }
+
+ReactDOM.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
+    document.getElementById("root")
+);
 
 export default App;
