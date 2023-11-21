@@ -1,21 +1,16 @@
-import BasicPage from "./BasicPage";
 import React from "react";
+import makeSamplePage from "./makeSamplePage";
 
-const Interactions: React.FunctionComponent<{next: () => void}> = ({next }) => {
-    const [ triggeredEvents, setTriggeredEvents ] = React.useState<string[]>([])
-
-    return (
-        <BasicPage
-            title={"Basic interactions"}
-            expectedEvents={['click', 'contextmenu', 'dblclick']}
-            triggeredEvents={triggeredEvents}
-            next={next}
-        >
-            <button onClick={() => setTriggeredEvents([...triggeredEvents, 'click'])}>Click me</button>
-            <button onContextMenu={() => setTriggeredEvents([...triggeredEvents, 'contextmenu'])}>Right click me</button>
-            <button onDoubleClick={() => setTriggeredEvents([...triggeredEvents, 'dblclick'])}>Double click me</button>
-        </BasicPage>
+const Interactions = makeSamplePage(
+    'Basic interactions',
+    ['click', 'contextmenu', 'dblclick'],
+    (eventTriggered) => (
+        <>
+            <button onClick={() => eventTriggered('click')}>Click me</button>
+            <button onContextMenu={() => eventTriggered('contextmenu')}>Right click me</button>
+            <button onDoubleClick={() => eventTriggered('dblclick')}>Double click me</button>
+        </>
     )
-}
+)
 
 export default Interactions

@@ -6,7 +6,7 @@ type BasicPageProps = PropsWithChildren & {
     triggeredEvents: ReadonlyArray<string>,
     next: () => void
 }
-const BasicPage: React.FunctionComponent<BasicPageProps> = ({title, expectedEvents, triggeredEvents, next, children}) =>  {
+const Layout: React.FunctionComponent<BasicPageProps> = ({title, expectedEvents, triggeredEvents, next, children}) =>  {
     const [showNext, setShowNext] = React.useState(false)
     React.useEffect(() => {
         setShowNext(expectedEvents.filter(event => !triggeredEvents.includes(event)).length === 0)
@@ -28,4 +28,4 @@ const BasicPage: React.FunctionComponent<BasicPageProps> = ({title, expectedEven
     )
 }
 
-export default BasicPage
+export default Layout

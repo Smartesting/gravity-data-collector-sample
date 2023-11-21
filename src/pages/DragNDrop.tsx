@@ -1,4 +1,4 @@
-import BasicPage from "./BasicPage";
+import Layout from "./Layout";
 import React, {DragEventHandler} from "react";
 
 const DragNDrop: React.FunctionComponent<{next: () => void}> = ({next }) => {
@@ -34,7 +34,7 @@ const DragNDrop: React.FunctionComponent<{next: () => void}> = ({next }) => {
     }
 
     return (
-        <BasicPage
+        <Layout
             title={"Drag and drop"}
             expectedEvents={['drag', 'drop']}
             triggeredEvents={triggeredEvents}
@@ -63,7 +63,7 @@ const DragNDrop: React.FunctionComponent<{next: () => void}> = ({next }) => {
                 >
                 </div>
             </div>
-        </BasicPage>
+        </Layout>
     )
 }
 
