@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.dragContainer {
+  display: flex;
+}
+
+.dropZone {
+  flex-basis: 100%;
+  flex-grow: 1;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid gray;
+}
+
+.draggable {
+  background-color: aquamarine;
+  font-weight: normal;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  display: inline-block;
+}

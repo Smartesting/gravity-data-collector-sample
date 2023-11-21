@@ -6,6 +6,7 @@ import GravityCollector from '@smartesting/gravity-data-collector/dist'
 import Interactions from "./pages/Interactions";
 import CopyPaste from "./pages/CopyPaste";
 import Form from "./pages/Form";
+import DragNDrop from "./pages/DragNDrop";
 
 function App() {
     GravityCollector.init({
@@ -25,7 +26,11 @@ function App() {
           />
           <Route
               path='/form'
-              element={<Form next={() => {}} />}
+              element={<Form next={() => navigate('/drag-n-drop')} />}
+          />
+          <Route
+              path='/drag-n-drop'
+              element={<DragNDrop next={() => {}} />}
           />
       </Routes>
   );
