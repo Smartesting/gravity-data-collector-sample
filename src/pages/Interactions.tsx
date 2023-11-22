@@ -3,7 +3,7 @@ import makeSamplePage from "./makeSamplePage";
 
 const Interactions = makeSamplePage(
     'Basic interactions',
-    ['click', 'contextmenu', 'dblclick', 'toggle'],
+    ['click', 'contextmenu', 'dblclick', 'toggle', 'scroll'],
     (eventTriggered) => (
         <>
             <button onClick={() => eventTriggered('click')}>Click me</button>
@@ -13,6 +13,9 @@ const Interactions = makeSamplePage(
                 <summary>Expand this</summary>
                 <p>Here are some details.</p>
             </details>
+            <div className="scrollContainer" onScroll={() => eventTriggered('scroll')}>
+                <div>Scroll me</div>
+            </div>
         </>
     )
 )
