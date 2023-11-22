@@ -8,6 +8,7 @@ import CopyPaste from "./pages/CopyPaste";
 import Form from "./pages/Form";
 import DragNDrop from "./pages/DragNDrop";
 import Fullscreen from "./pages/Fullscreen";
+import Mouse from "./pages/Mouse";
 
 function App() {
     GravityCollector.init({
@@ -35,7 +36,11 @@ function App() {
           />
           <Route
               path='/fullscreen'
-              element={<Fullscreen next={() => {}} />}
+              element={<Fullscreen next={() => navigate('/mouse')} />}
+          />
+          <Route
+              path='/mouse'
+              element={<Mouse next={() => {}} />}
           />
       </Routes>
   );
