@@ -7,6 +7,8 @@ const FullScreenComponent: React.FunctionComponent<{eventTriggered: EventTrigger
         if (fullscreenDiv) {
             fullscreenDiv.addEventListener('fullscreenchange', () => eventTriggered('fullscreenchange'))
         }
+
+        window.addEventListener('resize', () => eventTriggered('resize'))
     }, [eventTriggered])
 
     return (<>
@@ -15,10 +17,10 @@ const FullScreenComponent: React.FunctionComponent<{eventTriggered: EventTrigger
     </>)
 }
 
-const Fullscreen = makeSamplePage(
-    'Fullscreen',
-    ['fullscreenchange'],
+const Screen = makeSamplePage(
+    'Screen',
+    ['fullscreenchange', 'resize'],
     (eventTriggered) => <FullScreenComponent eventTriggered={eventTriggered} />
 )
 
-export default Fullscreen
+export default Screen

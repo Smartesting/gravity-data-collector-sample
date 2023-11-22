@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter, Route, Routes, useNavigate} from "react-router-dom";
+import {BrowserRouter, Navigate, Route, Routes, useNavigate} from "react-router-dom";
 import ReactDOM from "react-dom";
 import GravityCollector from '@smartesting/gravity-data-collector/dist'
 import Interactions from "./pages/Interactions";
 import CopyPaste from "./pages/CopyPaste";
 import Form from "./pages/Form";
 import DragNDrop from "./pages/DragNDrop";
-import Fullscreen from "./pages/Fullscreen";
+import Screen from "./pages/Screen";
 import Mouse from "./pages/Mouse";
+import Navigation from "./pages/Navigation";
 
 function App() {
     GravityCollector.init({
@@ -32,15 +33,19 @@ function App() {
           />
           <Route
               path='/drag-n-drop'
-              element={<DragNDrop next={() => navigate('/fullscreen')} /> }
+              element={<DragNDrop next={() => navigate('/screen')} /> }
           />
           <Route
-              path='/fullscreen'
-              element={<Fullscreen next={() => navigate('/mouse')} />}
+              path='/screen'
+              element={<Screen next={() => navigate('/mouse')} />}
           />
           <Route
               path='/mouse'
-              element={<Mouse next={() => {}} />}
+              element={<Mouse next={() => navigate('/navigation')} />}
+          />
+          <Route
+              path='/navigation'
+              element={<Navigation next={() => navigate('/navigation')} />}
           />
       </Routes>
   );
