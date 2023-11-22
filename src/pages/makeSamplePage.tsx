@@ -1,7 +1,7 @@
 import React, {ReactNode} from "react";
 import Layout from "./Layout";
 
-type EventTriggered = (event: string) => void
+export type EventTriggered = (event: string) => void
 export default function makeSamplePage(
     title: string,
     events: string[],

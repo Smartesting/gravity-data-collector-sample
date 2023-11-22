@@ -7,6 +7,7 @@ import Interactions from "./pages/Interactions";
 import CopyPaste from "./pages/CopyPaste";
 import Form from "./pages/Form";
 import DragNDrop from "./pages/DragNDrop";
+import Fullscreen from "./pages/Fullscreen";
 
 function App() {
     GravityCollector.init({
@@ -22,15 +23,19 @@ function App() {
         />
           <Route
               path='/copy-paste'
-              element={<CopyPaste next={() => navigate('/form')} />}
+              element={<CopyPaste next={() => navigate('/form')} /> }
           />
           <Route
               path='/form'
-              element={<Form next={() => navigate('/drag-n-drop')} />}
+              element={<Form next={() => navigate('/drag-n-drop')} /> }
           />
           <Route
               path='/drag-n-drop'
-              element={<DragNDrop next={() => {}} />}
+              element={<DragNDrop next={() => navigate('/fullscreen')} /> }
+          />
+          <Route
+              path='/fullscreen'
+              element={<Fullscreen next={() => {}} />}
           />
       </Routes>
   );

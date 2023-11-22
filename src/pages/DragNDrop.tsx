@@ -1,9 +1,7 @@
-import Layout from "./Layout";
 import React, {DragEventHandler} from "react";
+import makeSamplePage, {EventTriggered} from "./makeSamplePage";
 
-const DragNDrop: React.FunctionComponent<{next: () => void}> = ({next }) => {
-    const [ triggeredEvents, setTriggeredEvents ] = React.useState<string[]>([])
-
+const DragNDropComponent: React.FunctionComponent<{eventTriggered: EventTriggered}> = ({eventTriggered }) => {
     const onDragStart: DragEventHandler = (event) => {
         if (!event.dataTransfer || !event.target || !event.currentTarget) return
         // @ts-ignore
@@ -30,41 +28,39 @@ const DragNDrop: React.FunctionComponent<{next: () => void}> = ({next }) => {
         // @ts-ignore
         draggableElement.style.background = 'aquamarine'
 
-        setTriggeredEvents([...triggeredEvents, 'drop'])
+        eventTriggered('drop')
     }
 
     return (
-        <Layout
-            title={"Drag and drop"}
-            expectedEvents={['drag', 'drop']}
-            triggeredEvents={triggeredEvents}
-            next={next}
-        >
-            <div className="dragContainer">
-                <div className="dropZone"
-                     onDragOver={onDragOver}
-                     onDrop={onDrop}
-                >
-                    <div
-                        id="draggable-1"
-                        className="draggable"
-                        draggable="true"
-                        onDragStart={onDragStart}
-                        onDrag={() => setTriggeredEvents([...triggeredEvents, 'drag'])}
-                    >
-                        Drag me
-                    </div>
-                </div>
-
+        <div className="dragContainer">
+            <div className="dropZone"
+                 onDragOver={onDragOver}
+                 onDrop={onDrop}
+            >
                 <div
-                    className="dropZone"
-                    onDragOver={onDragOver}
-                    onDrop={onDrop}
+                    id="draggable-1"
+                    className="draggable"
+                    draggable="true"
+                    onDragStart={onDragStart}
+                    onDrag={() => eventTriggered('drag')}
                 >
+                    Drag me
                 </div>
             </div>
-        </Layout>
+
+            <div
+                className="dropZone"
+                onDragOver={onDragOver}
+                onDrop={onDrop}
+            >
+            </div>
+        </div>
     )
 }
 
+const DragNDrop = makeSamplePage(
+    'Drag and drop',
+    ['drag', 'drop'],
+    (eventTriggered) => <DragNDropComponent eventTriggered={eventTriggered} />
+)
 export default DragNDrop
