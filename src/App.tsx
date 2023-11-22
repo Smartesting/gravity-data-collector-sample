@@ -10,6 +10,7 @@ import DragNDrop from "./pages/DragNDrop";
 import Screen from "./pages/Screen";
 import Mouse from "./pages/Mouse";
 import Navigation from "./pages/Navigation";
+import Video from "./pages/Video";
 
 function App() {
     GravityCollector.init({
@@ -45,7 +46,11 @@ function App() {
           />
           <Route
               path='/navigation'
-              element={<Navigation next={() => navigate('/navigation')} />}
+              element={<Navigation next={() => navigate('/video')} />}
+          />
+          <Route
+              path='/video'
+              element={<Video next={() => navigate('/video')} />}
           />
       </Routes>
   );
