@@ -6,8 +6,9 @@ import {BrowserRouter} from "react-router-dom";
 import { createRoot } from 'react-dom/client';
 
 const root = createRoot(document.getElementById('root')  as HTMLElement);
+const basename = process.env.REACT_APP_BASENAME ?? ''
 root.render(
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
         <App />
     </BrowserRouter>,
 );

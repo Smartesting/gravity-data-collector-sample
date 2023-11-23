@@ -22,7 +22,7 @@ jobs:
         node-version: 16
         cache: 'npm'
     - run: npm install
-    - run: npm run build
+    - run: REACT_APP_BASENAME="/gravity-data-collector-sample/" npm run build
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
       with:
