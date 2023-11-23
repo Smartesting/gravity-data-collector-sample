@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter, Navigate, Route, Routes, useNavigate} from "react-router-dom";
-import ReactDOM from "react-dom";
+import { Route, Routes, useNavigate} from "react-router-dom";
 import GravityCollector from '@smartesting/gravity-data-collector/dist'
 import Interactions from "./pages/Interactions";
 import CopyPaste from "./pages/CopyPaste";

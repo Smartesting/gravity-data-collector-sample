@@ -22,7 +22,7 @@ const Layout: React.FunctionComponent<BasicPageProps> = ({title, expectedEvents,
                 ))}
             </ul>
             {children}
-            {showNext && <a onClick={next}>Next page</a> }
+            {showNext && <button onClick={next}>Next page</button> }
         </>
 
     )
