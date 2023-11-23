@@ -8,6 +8,8 @@ const DragNDropComponent: React.FunctionComponent<{eventTriggered: EventTriggere
         event.dataTransfer.setData('text/plain', event.target.id);
         // @ts-ignore
         event.currentTarget.style.backgroundColor = 'yellow';
+
+        eventTriggered('dragstart')
     }
 
     const onDragOver: DragEventHandler = (event) => {
@@ -60,7 +62,7 @@ const DragNDropComponent: React.FunctionComponent<{eventTriggered: EventTriggere
 
 const DragNDrop = makeSamplePage(
     'Drag and drop',
-    ['drag', 'drop'],
+    ['dragstart', 'drag', 'drop'],
     (eventTriggered) => <DragNDropComponent eventTriggered={eventTriggered} />
 )
 export default DragNDrop
