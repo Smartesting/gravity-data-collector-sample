@@ -8,9 +8,11 @@ import Mouse from "./pages/Mouse";
 import Navigation from "./pages/Navigation";
 import Video from "./pages/Video";
 import React from "react";
+import Mobile from "./pages/Mobile";
 
 export const samplePages = [
     { path: '/', title: 'Interactions', element: Interactions },
+    { path: '/mobile', title: 'Mobile', element: Mobile },
     { path: '/copy-paste', title: 'Copy paste', element: CopyPaste },
     { path: '/form', title: 'Forms', element: Form },
     { path: '/drag-n-drop', title: 'Drag and drop', element: DragNDrop },
@@ -25,38 +27,10 @@ const Routing: React.FunctionComponent = () => {
 
     return (
         <Routes>
-            <Route
-                path='/'
-                element={<Interactions next={() => navigate('/copy-paste')}/>}
-            />
-            <Route
-                path='/copy-paste'
-                element={<CopyPaste next={() => navigate('/form')} /> }
-            />
-            <Route
-                path='/form'
-                element={<Form next={() => navigate('/drag-n-drop')} /> }
-            />
-            <Route
-                path='/drag-n-drop'
-                element={<DragNDrop next={() => navigate('/screen')} /> }
-            />
-            <Route
-                path='/screen'
-                element={<Screen next={() => navigate('/mouse')} />}
-            />
-            <Route
-                path='/mouse'
-                element={<Mouse next={() => navigate('/navigation')} />}
-            />
-            <Route
-                path='/navigation'
-                element={<Navigation next={() => navigate('/video')} />}
-            />
-            <Route
-                path='/video'
-                element={<Video next={() => navigate('/video')} />}
-            />
+            { samplePages.map(({path, element: Element}, index) => {
+                const next = index === samplePages.length ? () => {} : () => navigate(samplePages[index + 1].path)
+                return <Route path={path} element={<Element next={next} />} />
+            })}
         </Routes>
     )
 }
