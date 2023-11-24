@@ -5,18 +5,13 @@ import {
     AppBar,
     Box,
     createTheme,
-    CssBaseline, Divider,
-    Drawer,
-    IconButton, List, ListItem, ListItemButton, ListItemText,
+    CssBaseline,
     ThemeProvider,
     Toolbar,
     Typography
 } from "@mui/material";
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import MenuIcon from '@mui/icons-material/Menu';
 
-import Routing, {samplePages} from "./routing";
-import {useNavigate} from "react-router-dom";
+import Routing from "./routing";
 import Menu from "./Menu";
 
 function App() {
@@ -26,7 +21,6 @@ function App() {
         })
     }
     const defaultTheme = createTheme()
-    const navigate = useNavigate()
 
     return (
       <ThemeProvider theme={defaultTheme}>
