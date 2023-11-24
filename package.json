@@ -10,6 +10,10 @@
     "serve": "serve ."
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.18",
+    "@mui/material": "^5.14.18",
     "@smartesting/gravity-data-collector": "https://smartesting.github.io/gravity-data-collector/main/smartesting-gravity-data-collector.tgz",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -22,9 +26,9 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.19.0",
     "react-scripts": "5.0.1",
+    "serve": "^14.2.1",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4",
-    "serve": "^14.2.1"
+    "web-vitals": "^2.1.4"
   },
   "eslintConfig": {
     "extends": [
