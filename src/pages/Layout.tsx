@@ -19,7 +19,7 @@ const Layout: React.FunctionComponent<BasicPageProps> = ({title, expectedEvents,
         <>
             <h1>{title}</h1>
             <Box sx={{padding: '8px'}}>
-               { expectedEvents.map((event, index) => <EventChip event={event} triggeredEvents={triggeredEvents} /> )}
+               { expectedEvents.map((event, index) => <EventChip key={`event-chip-${index}`} event={event} triggeredEvents={triggeredEvents} /> )}
             </Box>
 
             <Box>

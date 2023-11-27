@@ -28,8 +28,8 @@ const Routing: React.FunctionComponent = () => {
     return (
         <Routes>
             { samplePages.map(({path, element: Element}, index) => {
-                const next = index === samplePages.length ? () => {} : () => navigate(samplePages[index + 1].path)
-                return <Route path={path} element={<Element next={next} />} />
+                const next = (index === samplePages.length - 1) ? () => {} : () => navigate(samplePages[index + 1].path)
+                return <Route key={`route-${index}`} path={path} element={<Element next={next} />} />
             })}
         </Routes>
     )

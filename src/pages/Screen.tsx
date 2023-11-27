@@ -12,7 +12,7 @@ const FullScreenComponent: React.FunctionComponent<{eventTriggered: EventTrigger
     }, [eventTriggered])
 
     return (<>
-        <div id="fullscreen-element" >Take me full screen</div>
+        <div id="fullscreen-element">Take me full screen</div>
         <button onClick={() => document.getElementById('fullscreen-element')!.requestFullscreen()}>Click me</button>
     </>)
 }

@@ -17,8 +17,8 @@ const Menu: React.FunctionComponent<{activeMenu?: string}> = ({activeMenu}) => {
             <Toolbar />
             <Box sx={{ overflow: 'auto' }}>
                 <List component="nav">
-                    {samplePages.map(({path, title}) => (
-                        <ListItem>
+                    {samplePages.map(({path, title}, index) => (
+                        <ListItem key={`menulist-item-${index}`}>
                             <ListItemButton onClick={() => navigate(path)}>
                                 <ListItemText primary={title} />
                             </ListItemButton>

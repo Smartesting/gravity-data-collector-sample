@@ -7,7 +7,7 @@ const NavigationComponent: React.FunctionComponent<{eventTriggered: EventTrigger
     },[eventTriggered])
 
     return <>
-        <a href="#some-anchor">Click me</a>
+        <a data-testid={'Navigation.HashChange'} href="#some-anchor">Click me</a>
         <h1 id="some-anchor">A title</h1>
     </>
 }

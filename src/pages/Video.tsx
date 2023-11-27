@@ -5,6 +5,7 @@ const Video = makeSamplePage(
     ['play', 'pause', 'seeked'],
     (eventTriggered)  => <>
         <video
+            data-testid={"Video.Player"}
             onPlay={() => eventTriggered('play')}
             onPause={() => eventTriggered('pause')}
             onSeeked={() => eventTriggered('seeked')}
