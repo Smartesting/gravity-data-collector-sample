@@ -20,7 +20,7 @@ const Menu: React.FunctionComponent<{activeMenu?: string}> = ({activeMenu}) => {
                     {samplePages.map(({path, title}, index) => (
                         <ListItem key={`menulist-item-${index}`}>
                             <ListItemButton onClick={() => navigate(path)}>
-                                <ListItemText primary={title} />
+                                <ListItemText primary={title} data-testid={`Menu.${title.toLocaleUpperCase().replace(/\s/g, '')}`}/>
                             </ListItemButton>
                         </ListItem>
                     ))}
